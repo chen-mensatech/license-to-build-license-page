@@ -16,7 +16,6 @@
     "antd": "^4.6.4",
     "axios": "^0.20.0",
     "react": "^16.13.1",
-    "react-animation": "^1.2.2",
     "react-dom": "^16.13.1",
     "react-image-mapper": "0.0.15",
     "url-loader": "^4.1.0"
