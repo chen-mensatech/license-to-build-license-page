@@ -18,6 +18,8 @@ import {
 import axios from "axios";
 import { AustraliaMap } from "./australiaMap";
 import ImageMapper from "react-image-mapper";
+import "./style.css";
+import { animations, AnimateOnChange } from "react-animation";
 
 const { TabPane } = Tabs;
 
@@ -70,12 +72,14 @@ class App extends Component {
 
   renderClassesByState = (state) => {
     return (
-      <Radio.Group
-        onChange={this.radioOnChange}
-        value={this.state.selectedClass}
-      >
-        {this.renderEachStateAllClasses(state)}
-      </Radio.Group>
+      <div style={{ animation: animations.fadeIn }}>
+        <Radio.Group
+          onChange={this.radioOnChange}
+          value={this.state.selectedClass}
+        >
+          {this.renderEachStateAllClasses(state)}
+        </Radio.Group>
+      </div>
     );
   };
 
@@ -194,7 +198,9 @@ class App extends Component {
       </div>
     ) : this.state.error ? (
       <div className="map-card-container width-change">
-        <div>{this.state.error}</div>
+        <AnimateOnChange animationIn="fadeIn" animationOut="fadeOut">
+          <div>{this.state.error}</div>
+        </AnimateOnChange>
       </div>
     ) : (
       <div className="map-card-class-detail-container">
@@ -239,9 +245,13 @@ class App extends Component {
           </div>
           <div className="single-class-detail-container">
             {this.state.selectedClassDetail ? (
-              <p>{this.state.selectedClassDetail.scopeOfWork}</p>
+              <AnimateOnChange animationIn="fadeIn" animationOut="fadeOut">
+                <p>{this.state.selectedClassDetail.scopeOfWork}</p>
+              </AnimateOnChange>
             ) : (
-              <p>No Selection</p>
+              <AnimateOnChange animationIn="fadeIn" animationOut="fadeOut">
+                <p>No Selection</p>
+              </AnimateOnChange>
             )}
           </div>
           <div className="divider-container">
@@ -252,9 +262,13 @@ class App extends Component {
           </div>
           <div className="single-class-detail-container">
             {this.state.selectedClassDetail ? (
-              <p>{this.state.selectedClassDetail.expRequired}</p>
+              <AnimateOnChange animationIn="fadeIn" animationOut="fadeOut">
+                <p>{this.state.selectedClassDetail.expRequired}</p>
+              </AnimateOnChange>
             ) : (
-              <p>No Selection</p>
+              <AnimateOnChange animationIn="fadeIn" animationOut="fadeOut">
+                <p>No Selection</p>
+              </AnimateOnChange>
             )}
           </div>
           <div className="divider-container">
@@ -265,9 +279,13 @@ class App extends Component {
           </div>
           <div className="single-class-detail-container">
             {this.state.selectedClassDetail ? (
-              <p>{this.state.selectedClassDetail.qualRequired}</p>
+              <AnimateOnChange animationIn="fadeIn" animationOut="fadeOut">
+                <p>{this.state.selectedClassDetail.qualRequired}</p>
+              </AnimateOnChange>
             ) : (
-              <p>No Selection</p>
+              <AnimateOnChange animationIn="fadeIn" animationOut="fadeOut">
+                <p>No Selection</p>
+              </AnimateOnChange>
             )}
           </div>
         </div>
